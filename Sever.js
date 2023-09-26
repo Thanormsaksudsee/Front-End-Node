@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 
 
-const base_url = 'http://node50104-bigkumatest.proen.app.ruk-com.cloud';
+const base_url = 'http://node50104-bigkumatest.proen.app.ruk-com.cloud/';
 
 
 app.set('view engine', 'ejs');
