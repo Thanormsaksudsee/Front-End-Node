@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Update Habitat</title>
+    <title>Update Hospital</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -65,21 +65,27 @@
     </style>
 </head>
 <body>
-    <h1>Update Habitat</h1>
-    <form method="post" action="/updateHabitat/<%= Habitat.ID %>">
+    <h1>Update Hospital</h1>
+    <form method="post" action="/updateHospital/<%= Hospital.ID %>">
         <label for="Name">Name</label>
-        <input type="text" id="Name" name="Name" value="<%= Habitat.Name %>">
+        <input type="text" id="Name" name="Name" value="<%= Hospital.Name %>">
         <br>
-        <label for="Data">Data</label>
-        <input type="text" id="Data" name="Data" value="<%= Habitat.Data %>">
+        <label for="address">address</label>
+        <input type="text" id="address" name="address" value="<%= Hospital.address %>">
         <br>
         <label for="Pic">Pic</label>
-        <input type="text" id="Pic" name="Pic" value="<%= Habitat.Pic %>">
+        <input type="file" id="Pic" name="Pic" value="<%= Hospital.Pic %>">
         <br>
         <input type="submit" value="Update">
     </form>
-<a href="/Habitat/<%= Habitat.ID %>">View</a>
-<a href="/DeleteHabitat/<%= Habitat.ID %>">Delete</a>
-<a href="/Habitats">Back to List</a>
+<a href="/DeleteHospital/<%= Hospital.ID %>">Delete</a>
+<a href="/Hospitals">Back to List</a>
 </body>
+<script>
+    document.getElementById('Pic').addEventListener('change', function (e) {
+        var preview = document.getElementById('preview');
+        preview.style.display = 'block';
+        preview.src = URL.createObjectURL(e.target.files[0]);
+    });
+</script>
 </html>

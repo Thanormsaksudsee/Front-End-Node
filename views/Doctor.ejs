@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Animal</title>
+    <title>Doctor List</title>
     
     <style>
         body {
@@ -94,31 +94,33 @@
     </style>
 </head>
 <body>
-    <h1>View Animal</h1>
-    <table class="Animal-table">
+    <h1>View Doctor</h1>
+    <table class="Doctor-table">
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Data</th>
+            <th>Department</th>
+            <th>HospitalID</th>
             <th>Pic</th>
         </tr>
         <tr>
-            <td><%= Animal.ID %></td>
-            <td><%= Animal.Name %></td>
-            <td><%= Animal.Data %></td>
+            <td><%= Doctor.ID %></td>
+            <td><%= Doctor.Name %></td>
+            <td><%= Doctor.Department %></td>
+            <td><%= Doctor.HospitalID %></td>
             <td>
-                <img onclick="openLightbox(this)" src="<%= Animal.Pic %>" alt="Animal Pic">
+                <img onclick="openLightbox(this)" src="<%= Doctor.Pic %>" alt="Doctor Pic">
                 <!-- Lightbox -->
                 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-                    <img id="lightbox-img" src="<%= Animal.Pic %>" alt="Animal Pic">
+                    <img id="lightbox-img" src="<%= Doctor.Pic %>" alt="Doctor Pic">
                 </div>
             </td>  
         </tr>
     </table>
     <div class="link-center">
-        <a href="/updateAnimal/<%= Animal.ID %>">Edit</a>
-        <a href="/updateAnimal/<%= Animal.ID %>">Delete</a>
-        <a href="/Animals">Back to List</a>
+        <a href="/updateDoctor/<%= Doctor.ID %>">Edit</a>
+        <a href="/updateDoctor/<%= Doctor.ID %>">Delete</a>
+        <a href="/Doctors">Back to List</a>
     </div>
 
     <script>

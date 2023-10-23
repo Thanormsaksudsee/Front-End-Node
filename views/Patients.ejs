@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Doctor</title>
+    <style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF; /* Blue color for headings */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; /* White background for the table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+th {
+    background-color: #007BFF; /* Blue color for header background */
+    color: #fff; /* White color for header text */
+}
+
+img {
+    width: 110px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+td img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.actions a {
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: #007BFF; /* Blue color for action buttons */
+    color: #fff;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.actions a:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+.create-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: #0056b3; /* Green color for create link */
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.create-link:hover {
+    background-color: #0056b3; /* Darker green color on hover */
+}
+    </style>
+</head>
+<body>
+    <h1>Patients</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Disease</th>
+            <th>Symptoms</th>
+            <th>Pic</th>
+            <th>Actions</th>
+        </tr>
+        <% for (var i = 0; i < Patients.length; i++) { %>
+            <tr>
+                <td><%= Patients[i].ID %></td>
+                <td><%= Patients[i].Name%></td>
+                <td><%= Patients[i].Disease %></td>
+                <td><%= Patients[i].Symptoms %></td>
+                <td><img src="<%= Patients[i].Pic %>" alt="Patient Pic"></td>
+                <td class="actions">
+                    <a href="/updatePatient/<%= Patients[i].ID %>">Update</a>
+                    <a href="/deletePatient/<%= Patients[i].ID %>">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/createPatient"class="create-link">Create New Patient</a>
+    <br>
+    <a href="/" class="create-link">View Treatment</a>
+    <br>
+    <a href="/Doctors" class="create-link">View Doctor</a>
+    <br>
+    <a href="/Hospitals" class="create-link">View Hospital</a>
+</body>
+</html>

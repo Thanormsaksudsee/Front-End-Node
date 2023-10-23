@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Update Habitat Of Animal</title>
+    <title>Update Patient</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -65,20 +65,32 @@
     </style>
 </head>
 <body>
-    <h1>Update Habitat Of Animal</h1>
-    <form method="post" action="/updateHabitatOfAnimal/<%= HabitatOfAnimal.AnimalID %>">
-
-        <label for="AnimalID">AnimalID</label>
-        <input type="text" id="AnimalID" name="AnimalID" value="<%= HabitatOfAnimal.AnimalID %>">
+    <h1>Update Patient</h1>
+    <form method="post" action="/updatePatient/<%= Patient.ID %>">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" value="<%= Patient.Name %>">
         <br>
-        <label for="HabitatID">HabitatID</label>
-        <input type="text" id="HabitatID" name="HabitatID" value="<%= HabitatOfAnimal.HabitatID %>">
+        <label for="Disease">Disease</label>
+        <input type="text" id="Disease" name="Disease" value="<%= Patient.Disease %>">
         <br>
-
+        <label for="Symptoms">Symptoms</label>
+        <input type="text" id="Symptoms" name="Symptoms" value="<%= Patient.Symptoms %>">
+        <br>
+        <label for="Pic">Pic</label>
+        <input type="file" id="Pic" name="Pic" value="<%= Patient.Pic %>">
+        <br>
         <input type="submit" value="Update">
     </form>
-<a href="/HabitatOfAnimal/<%= HabitatOfAnimal.AnimalID %>">View</a>
-<a href="/DeleteHabitatOfAnimal/<%= HabitatOfAnimal.AnimalID %>">Delete</a>
-<a href="/">Back to List</a>
+    
+<a href="/DeletePatient/<%= Patient.ID %>">Delete</a>
+<a href="/Patients">Back to List</a>
 </body>
+<script>
+    document.getElementById('Pic').addEventListener('change', function (e) {
+        var preview = document.getElementById('preview');
+        preview.style.display = 'block';
+        preview.src = URL.createObjectURL(e.target.files[0]);
+    });
+</script>
+
 </html>

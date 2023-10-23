@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Patient</title>
+    <style>
+        body {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: #f8f9fa; 
+         color: #333;
+         text-align: center;
+         margin: 50px;
+         min-height: 100vh;
+         background-image: url('https://images3.alphacoders.com/101/thumb-1920-1010294.jpg');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         backdrop-filter: blur(4px);
+     
+ }
+ 
+ h1 {
+     color: #000000;
+ }
+ 
+ form {
+     width: 50%;
+     margin: 0 auto;
+     background: #fff;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+ }
+ 
+ label {
+     display: block;
+     margin: 10px 0;
+     color: #495057;
+ }
+ 
+ input {
+     width: calc(100% - 20px);
+     padding: 10px;
+     margin: 5px 0;
+     box-sizing: border-box;
+     border: 1px solid #ced4da;
+     border-radius: 5px;
+     background-color: #f1f3f5;
+     color: #495057;
+     font-size: 16px;
+ }
+ 
+ input[type="submit"] {
+     background-color: #007BFF;
+     color: white;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+ }
+ 
+ input[type="submit"]:hover {
+     background-color: #000000;
+ }
+ 
+ a {
+     display: block;
+     margin-top: 20px;
+     text-decoration: none;
+     color: #01050a;
+     font-size: 30px;
+ }
+     </style>
+</head>
+<body>
+    <h1>Create Patient</h1>
+    <form method="post" action="/createPatient">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name">
+        <br>
+        <label for="Disease">Disease</label>
+        <input type="text" id="Disease" name="Disease">
+        <br>
+        <label for="Symptoms">Symptoms</label>
+        <input type="text" id="Symptoms" name="Symptoms">
+        <br>
+        <label for="Pic">Pic</label>
+        <input type="file" id="Pic" name="Pic" accept="image/*">
+        <br>
+        <input type="submit" value="Create">
+        <br>
+    </form>
+    <a href="/Patients">Back to List</a>
+</body>
+<script>
+    document.getElementById('Pic').addEventListener('change', function (e) {
+        var preview = document.getElementById('preview');
+        preview.style.display = 'block';
+        preview.src = URL.createObjectURL(e.target.files[0]);
+    });
+</script>
+
+</html>

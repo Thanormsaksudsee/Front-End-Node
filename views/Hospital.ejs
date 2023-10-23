@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>HabitatOfAnimal</title>
+    <title>Hospital List</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -93,21 +94,60 @@
     </style>
 </head>
 <body>
-    <h1>View HabitatOfAnimal</h1>
-    <table class="HabitatOfAnimal-table">
-    <tr>
-        <th>AnimalID</th>
-        <th>HabitatID</th>
-    </tr>
-    <tr>
-        <td><%= HabitatOfAnimal.AnimalID %></td>
-        <td><%= HabitatOfAnimal.HabitatID %></td>
-    </tr>
-</table>
-<div class="link-center">
-    <a href="/updateHabitatOfAnimal/<%= HabitatOfAnimal.AnimalID %>">Edit</a>
-    <a href="/updateHabitatOfAnimal/<%= HabitatOfAnimal.AnimalID %>">Delete</a>
-    <a href="/">Back to List</a>
-</div>
+    <h1>View Hospital</h1>
+    <table class="Hospital-table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>address</th>
+            <th>Pic</th>
+        </tr>
+        <tr>
+            <td><%= Hospital.ID %></td>
+            <td><%= Hospital.Name %></td>
+            <td><%= Hospital.address %></td>
+
+            <td>
+                <img onclick="openLightbox(this)" src="<%= Hospital.Pic %>" alt="Hospital Pic">
+                <!-- Lightbox -->
+                <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                    <img id="lightbox-img" src="<%= Hospital.Pic %>" alt="Hospital Pic">
+                </div>
+            </td>  
+        </tr>
+    </table>
+    <div class="link-center">
+        <a href="/updateHospital/<%= Hospital.ID %>">Edit</a>
+        <a href="/updateHospital/<%= Hospital.ID %>">Delete</a>
+        <a href="/Hospitals">Back to List</a>
+    </div>
+
+    <script>
+        function openLightbox(element) {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+
+            lightbox.style.display = 'flex';
+            lightboxImg.src = element.src;
+
+            window.addEventListener('wheel', zoomImage);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            window.removeEventListener('wheel', zoomImage);
+        }
+
+        function zoomImage(event) {
+            var lightboxImg = document.getElementById('lightbox-img');
+            var delta = event.deltaY || event.detail || event.wheelDelta;
+
+            var scale = delta > 0 ? 1.1 : 0.9;
+            lightboxImg.style.width = lightboxImg.clientWidth * scale + 'px';
+            lightboxImg.style.height = lightboxImg.clientHeight * scale + 'px';
+
+            event.preventDefault();
+        }
+    </script>
 </body>
 </html>

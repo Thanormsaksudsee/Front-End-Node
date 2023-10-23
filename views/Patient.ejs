@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Habitat</title>
+    <title>Patient</title>
 </head>
 
 <style>
@@ -97,29 +97,31 @@
 </style>
 
 <body>
-    <h1>View Habitat</h1>
-    <table class="Habitat-table">
+    <h1>View Patient</h1>
+    <table class="Patient-table">
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Data</th>
+            <th>Disease</th>
+            <th>Symptoms</th>
             <th>Pic</th>
         </tr>
         <tr>
-            <td><%= Habitat.ID %></td>
-            <td><%= Habitat.Name %></td>
-            <td><%= Habitat.Data %></td>
-            <td><img onclick="openLightbox(this)" src="<%= Habitat.Pic %>" alt="Habitat Pic"></td>
+            <td><%= Patient.ID %></td>
+            <td><%= Patient.Name %></td>
+            <td><%= Patient.Disease %></td>
+            <td><%= Patient.Symptoms %></td>
+            <td><img onclick="openLightbox(this)" src="<%= Patient.Pic %>" alt="Patient Pic"></td>
         </tr>
     </table>
     <div class="link-center">
-        <a href="/updateHabitat/<%= Habitat.ID %>">Edit</a>
-        <a href="/updateHabitat/<%= Habitat.ID %>">Delete</a>
-        <a href="/Habitats">Back to List</a>
+        <a href="/updatePatient/<%= Patient.ID %>">Edit</a>
+        <a href="/updatPatient/<%= Patient.ID %>">Delete</a>
+        <a href="/Patients">Back to List</a>
     </div>
 
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="<%= Habitat.Pic %>" alt="Habitat Pic">
+        <img id="lightbox-img" src="<%= Patient.Pic %>" alt="Patient Pic">
     </div>
 
     <script>

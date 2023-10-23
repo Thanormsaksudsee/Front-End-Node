@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Create Animal</title>
+    <title>Update Treatment</title>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -64,20 +65,26 @@
     </style>
 </head>
 <body>
-    <h1>Create Animal</h1>
-    <form method="post" action="/createAnimal">
-        <label for="Name">Name</label>
-        <input type="text" id="Name" name="Name">
+    <h1>Update Treatment</h1>
+    <form method="post" action="/updateTreatment/<%= Treatment.ID %>">
+        <label for="DoctorID">DoctorID</label>
+        <input type="text" id="DoctorID" name="DoctorID" value="<%= Treatment.DoctorID %>">
         <br>
-        <label for="Data">Data</label>
-        <input type="text" id="Data" name="Data">
+        <label for="PatientID">PatientID</label>
+        <input type="text" id="PatientID" name="PatientID" value="<%= Treatment.PatientID %>">
         <br>
-        <label for="Pic">Pic</label>
-        <input type="text" id="Pic" name="Pic">
+        <label for="HospitalID">HospitalID</label>
+        <input type="text" id="HospitalID" name="HospitalID" value="<%= Treatment.HospitalID %>">
         <br>
-        <input type="submit" value="Create">
+        <label for="Treatment">Treatment</label>
+        <input type="text" id="Treatment" name="Treatment" value="<%= Treatment.Treatment %>">
         <br>
+
+        <input type="submit" value="Update">
     </form>
-    <a href="/Animals">Back to List</a>
+    
+
+<a href="/DeleteTreatment/<%= Treatment.ID %>">Delete</a>
+<a href="/">Back to List</a>
 </body>
-</html>
+</html> 

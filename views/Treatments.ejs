@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatment schedule</title>
+    <style>
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 20px;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-image: url('https://images3.alphacoders.com/101/thumb-1920-1010294.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        backdrop-filter: blur(4px);
+    }
+
+    h1 {
+        text-align: center;
+        color: #000000;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: left;
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        margin-right: 10px;
+        color: #007BFF;
+    }
+
+    .actions {
+        display: flex;
+        gap: 5px;
+    }
+
+    .create-link {
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        background-color: #007BFF;
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .create-link:hover {
+        background-color: #0056b3;
+    }
+        .emoji-link {
+        text-decoration: none;
+        margin-right: 10px; /* Adjust as needed */
+        position: relative;
+    }
+
+        .emoji-link:hover::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        white-space: nowrap;
+        z-index: 1;
+    }
+
+
+    .footer {
+        background-color: #002955;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        margin-top: auto; /* Push to the bottom */
+    }
+    </style>
+</head>
+<body>
+    <h1>Treatment schedule</h1>
+    <table>
+        <tr>
+            <th>Doctor</th>
+            <th>Patient</th>
+            <th>Hospital</th>
+            <th>Treatment</th>
+            <th>Actions</th>
+        </tr>
+        <!-- Replace the following block with your actual data rendering logic -->
+        <% for (var i = 0; i < Treatments.length; i++) { %>
+            <tr>
+                <td><%= Treatments[i].DoctorID ? Doctor[Treatments[i].DoctorID].Name : '' %></td>
+                <td><%= Treatments[i].PatientID ? Patient[Treatments[i].PatientID].Name : '' %></td>
+                <td><%= Treatments[i].HospitalID ? Hospital[Treatments[i].HospitalID].Name : '' %></td>
+
+                <td><%= Treatments[i].Treatment %></td>
+                <!-- Additional data rendering logic as needed -->
+                <td class="actions">
+                    <a href="/Treatment/<%= Treatments[i].ID %>" title="View Treatment">👁‍🗨</a>
+                    <a href="/updateTreatment/<%= Treatments[i].ID %>" title="Update Treatment">✏️</a>
+                    <a href="/deleteTreatment/<%= Treatments[i].ID %>" title="Delete Treatment">🗑</a>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+    <a href="/createTreatment" class="create-link">Create New Treatment</a>
+    <a href="/Doctors" class="create-link">Manage Doctor👨‍⚕️</a>
+    <a href="/Patients" class="create-link">Manage Patient🙎</a>
+    <a href="/Hospitals" class="create-link">Manage Hospital🏥</a>
+    <br>
+
+    <div class="footer">
+        &copy; 2023 Welcome to BigKuma World
+    </div>
+</body>
+</html>
+
+
