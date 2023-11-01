@@ -2,7 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 var bodyParser = require('body-parser');
-
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 
 
@@ -45,16 +46,24 @@ app.get("/createDoctor", (req, res) => {
     res.render('createDoctor');
 });
 
-app.post("/createDoctor", async (req, res) => {
+app.post("/createDoctor", upload.single('Pic'), async (req, res) => {
     try {
-        const data = { Name: req.body.Name, Department: req.body.Department,  HospitalID: req.body.HospitalID - 1, Pic: req.body.Pic };
-        await axios.post(base_url + '/Doctor', data);
-        res.redirect("/Doctors"); 
+      // ตรวจสอบ req.file ที่จะเป็นไฟล์ที่อัปโหลด
+      const data = {
+        Name: req.body.Name,
+        Department: req.body.Department,
+        HospitalID: req.body.HospitalID - 1,
+        Pic: req.file ? req.file.path : '', // เรียกใช้ req.file.path ถ้ามีไฟล์, ไม่มีก็เป็น ''
+      };
+  
+      await axios.post(base_url + '/Doctor', data);
+      res.redirect("/Doctors");
     } catch (err) {
-        console.error(err);
-        res.status(500).send('err');
+      console.error(err);
+      res.status(500).send('err');
     }
-});
+  });
+  
 
 app.get("/updateDoctor/:ID", async (req, res) => {
     try {
