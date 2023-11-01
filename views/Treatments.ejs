@@ -109,7 +109,7 @@
             <th>Actions</th>
         </tr>
         <!-- Replace the following block with your actual data rendering logic -->
-        <% for (var i = 0; i < Treatments.length; i++) { %>
+        <!-- <% for (var i = 0; i < Treatments.length; i++) { %>
             <tr>
                 <td><%= Treatments[i].DoctorID ? Doctor[Treatments[i].DoctorID].Name : '' %></td>
                 <td><%= Treatments[i].PatientID ? Patient[Treatments[i].PatientID].Name : '' %></td>
@@ -121,7 +121,20 @@
                     <a href="/Treatment/<%= Treatments[i].ID %>" title="View Treatment">👁‍🗨</a>
                     <a href="/updateTreatment/<%= Treatments[i].ID %>" title="Update Treatment">✏️</a>
                     <a href="/deleteTreatment/<%= Treatments[i].ID %>" title="Delete Treatment">🗑</a>
-                </td>
+                </td> -->
+                <% for (var i = 0; i < Treatments.length; i++) { %>
+                    <tr>
+                        <td><%= Treatments[i].DoctorID && Doctor[Treatments[i].DoctorID] ? Doctor[Treatments[i].DoctorID].Name : '' %></td>
+                        <td><%= Treatments[i].PatientID && Patient[Treatments[i].PatientID] ? Patient[Treatments[i].PatientID].Name : '' %></td>
+                        <td><%= Treatments[i].HospitalID && Hospital[Treatments[i].HospitalID] ? Hospital[Treatments[i].HospitalID].Name : '' %></td>
+            
+                        <td><%= Treatments[i].Treatment %></td>
+                        <!-- Additional data rendering logic as needed -->
+                        <td class="actions">
+                            <a href="/Treatment/<%= Treatments[i].ID %>" title="View Treatment">👁‍🗨</a>
+                            <a href="/updateTreatment/<%= Treatments[i].ID %>" title="Update Treatment">✏️</a>
+                            <a href="/deleteTreatment/<%= Treatments[i].ID %>" title="Delete Treatment">🗑</a>
+                        </td>
             </tr>
         <% } %>
     </table>
