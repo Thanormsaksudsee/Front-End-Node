@@ -2,8 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 var bodyParser = require('body-parser');
-const multer = require('multer'); 
-const upload = multer();
+
 
 
 
@@ -13,7 +12,7 @@ const base_url = 'http://node50104-bigkumatest.proen.app.ruk-com.cloud';
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(upload.single('Pic'));
+
 
 app.use(express.static(__dirname + '/public'));
 
@@ -46,24 +45,9 @@ app.get("/createDoctor", (req, res) => {
     res.render('createDoctor');
 });
 
-app.post("/createDoctor", upload.single('Pic'), async (req, res) => {
+app.post("/createDoctor", async (req, res) => {
     try {
-        // อัปโหลดไฟล์และใช้ req.file เพื่อดึงข้อมูลของไฟล์ที่อัปโหลด
-        const file = req.file;
-        
-        // ตรวจสอบว่ามีไฟล์ถูกอัปโหลดหรือไม่
-        if (!file) {
-            return res.status(400).send('No file uploaded.');
-        }
-
-        // ตรวจสอบและใช้ req.body.Pic เพื่อให้รับข้อมูลอื่น ๆ จาก form
-        const data = { 
-            Name: req.body.Name, 
-            Department: req.body.Department,  
-            HospitalID: req.body.HospitalID - 1, 
-            Pic: file.filename  // ใช้ชื่อไฟล์ที่อัปโหลดแทน
-        };
-
+        const data = { Name: req.body.Name, Department: req.body.Department,  HospitalID: req.body.HospitalID - 1, Pic: req.body.Pic };
         await axios.post(base_url + '/Doctor', data);
         res.redirect("/Doctors"); 
     } catch (err) {
