@@ -100,6 +100,7 @@ td img {
                 <td><%= Hospitals[i].Name %></td>
                 <td><%= Hospitals[i].address %></td>
                 <td class="actions">
+                    <a href="/Hospital/<%= Hospitals[i].ID %>">View</a>
                     <a href="/updateHospital/<%= Hospitals[i].ID %>">Update</a>
                     <a href="/deleteHospital/<%= Hospitals[i].ID %>">Delete</a>
                 </td>

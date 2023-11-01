@@ -101,7 +101,6 @@
             <th>Name</th>
             <th>Department</th>
             <th>HospitalID</th>
-            <th>Pic</th>
         </tr>
         <tr>
             <td><%= Doctor.ID %></td>
@@ -111,9 +110,7 @@
             <td>
                 <img onclick="openLightbox(this)" src="<%= Doctor.Pic %>" alt="Doctor Pic">
                 <!-- Lightbox -->
-                <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-                    <img id="lightbox-img" src="<%= Doctor.Pic %>" alt="Doctor Pic">
-                </div>
+
             </td>  
         </tr>
     </table>
