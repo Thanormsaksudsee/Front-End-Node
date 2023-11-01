@@ -46,7 +46,7 @@ app.get("/createDoctor", (req, res) => {
 
 app.post("/createDoctor", async (req, res) => {
     try {
-        const data = { Name: req.body.Name, Department: req.body.Department,  HospitalID: req.body.HospitalID, Pic: req.body.Pic };
+        const data = { Name: req.body.Name, Department: req.body.Department,  HospitalID: req.body.HospitalID - 1, Pic: req.body.Pic };
         await axios.post(base_url + '/Doctor', data);
         res.redirect("/Doctors"); 
     } catch (err) {
@@ -68,7 +68,7 @@ app.get("/updateDoctor/:ID", async (req, res) => {
 
 app.post("/updateDoctor/:ID", async (req, res) => {
     try {
-        const data = { Name: req.body.Name, Department: req.body.Department,  HospitalID: req.body.HospitalID, Pic: req.body.Pic };
+        const data = { Name: req.body.Name, Department: req.body.Department,  HospitalID: req.body.HospitalID - 1, Pic: req.body.Pic };
         await axios.put(base_url + '/Doctor/' + req.params.ID, data);
         res.redirect("/Doctors");
     } catch (err) {
@@ -218,7 +218,7 @@ app.get("/updateTreatment/:ID", async (req, res) => {
 
 app.post("/updateTreatment/:ID", async (req, res) => {
     try {
-        const data = { DoctorID: req.body.DoctorID, PatientID: req.body.PatientID, HospitalID: req.body.HospitalID, Treatment: req.body.Treatment };
+        const data = { DoctorID: req.body.DoctorID - 1, PatientID: req.body.PatientID - 1 , HospitalID: req.body.HospitalID - 1 , Treatment: req.body.Treatment };
         await axios.put(base_url + '/Treatment/' + req.params.ID, data);
         res.redirect("/");
     } catch (err) {
