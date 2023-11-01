@@ -71,8 +71,7 @@
 </head>
 <body>
     <h1>Create Doctor</h1>
-    <form method="post" action="/createDoctor" enctype="multipart/form-data">
-
+    <form method="post" action="/createDoctor">
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name">
         <br>
@@ -82,18 +81,11 @@
         <label for="HospitalID">HospitalID</label>
         <input type="text" id="HospitalID" name="HospitalID">
         <br>
-
         <input type="submit" value="Create">
         <br>
     </form>
     <a href="/Doctors">Back to List</a>
 </body>
-<script>
-    document.getElementById('Pic').addEventListener('change', function (e) {
-        var preview = document.getElementById('preview');
-        preview.style.display = 'block';
-        preview.src = URL.createObjectURL(e.target.files[0]);
-    });
-</script>
+
 
 </html>
