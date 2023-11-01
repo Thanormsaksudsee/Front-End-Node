@@ -111,9 +111,9 @@
         <!-- Replace the following block with your actual data rendering logic -->
         <% for (var i = 0; i < Treatments.length; i++) { %>
             <tr>
-                <td><%= Treatments[i].DoctorID && Doctor[Treatments[i].DoctorID] ? Doctor[Treatments[i].DoctorID].Name : '' %></td>
-                <td><%= Treatments[i].PatientID && Patient[Treatments[i].PatientID] ? Patient[Treatments[i].PatientID].Name : '' %></td>
-                <td><%= Treatments[i].HospitalID && Hospital[Treatments[i].HospitalID] ? Hospital[Treatments[i].HospitalID].Name : '' %></td>
+                <td><%= Treatments[i].DoctorID && Doctor[Treatments[i].DoctorID] ? Doctor[Treatments[i].DoctorID].Name : 'ยังไม่อัพค่าวัยรุ่น' %></td>
+                <td><%= Treatments[i].PatientID && Patient[Treatments[i].PatientID] ? Patient[Treatments[i].PatientID].Name : 'ยังไม่อัพค่าวัยรุ่น' %></td>
+                <td><%= Treatments[i].HospitalID && Hospital[Treatments[i].HospitalID] ? Hospital[Treatments[i].HospitalID].Name : 'ยังไม่อัพค่าวัยรุ่น' %></td>
     
                 <td><%= Treatments[i].Treatment %></td>
                 <!-- Additional data rendering logic as needed -->
