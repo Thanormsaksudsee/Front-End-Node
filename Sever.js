@@ -196,7 +196,7 @@ app.get("/createTreatment", (req, res) => {
 
 app.post("/createTreatment", async (req, res) => {
     try {
-        const data = {  DoctorID: req.body.DoctorID, PatientID: req.body.PatientID, HospitalID: req.body.HospitalID , Treatment: req.body.Treatment  };
+        const data = {  DoctorID: req.body.DoctorID - 1, PatientID: req.body.PatientID - 1 , HospitalID: req.body.HospitalID - 1 , Treatment: req.body.Treatment  };
         await axios.post(base_url + '/Treatment', data);
         res.redirect("/"); 
     } catch (err) {
