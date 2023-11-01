@@ -71,7 +71,8 @@
 </head>
 <body>
     <h1>Create Doctor</h1>
-    <form method="post" action="/createDoctor">
+    <form method="post" action="/createDoctor" enctype="multipart/form-data">
+
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name">
         <br>
@@ -81,9 +82,7 @@
         <label for="HospitalID">HospitalID</label>
         <input type="text" id="HospitalID" name="HospitalID">
         <br>
-        <label for="Pic">Pic</label>
-        <input type="file" id="Pic" name="Pic" accept="image/*">
-        <br>
+
         <input type="submit" value="Create">
         <br>
     </form>

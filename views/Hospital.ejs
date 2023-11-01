@@ -100,20 +100,14 @@
             <th>ID</th>
             <th>Name</th>
             <th>address</th>
-            <th>Pic</th>
+
         </tr>
         <tr>
             <td><%= Hospital.ID %></td>
             <td><%= Hospital.Name %></td>
             <td><%= Hospital.address %></td>
 
-            <td>
-                <img onclick="openLightbox(this)" src="<%= Hospital.Pic %>" alt="Hospital Pic">
-                <!-- Lightbox -->
-                <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-                    <img id="lightbox-img" src="<%= Hospital.Pic %>" alt="Hospital Pic">
-                </div>
-            </td>  
+
         </tr>
     </table>
     <div class="link-center">

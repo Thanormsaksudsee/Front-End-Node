@@ -91,7 +91,6 @@ td img {
             <th>Name</th>
             <th>Department</th>
             <th>Hospital</th>
-            <th>Pic</th>
             <th>Actions</th>
         </tr>
         <% for (let i = 0; i < Doctors.length; i++) { %>
@@ -100,7 +99,6 @@ td img {
                 <td><%= Doctors[i].Name %></td>
                 <td><%= Doctors[i].Department %></td>
                 <td><%= Doctors[i].HospitalID ? Hospital[Doctors[i].HospitalID].Name : '' %></td>
-                <td><img src="<%= Doctors[i].Pic %>" alt="Doctor Pic"></td>
                 <td class="actions">
                     <a href="/updateDoctor/<%= Doctors[i].ID %>">Update</a>
                     <a href="/deleteDoctor/<%= Doctors[i].ID %>">Delete</a>
